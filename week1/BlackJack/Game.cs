@@ -31,7 +31,7 @@ class Game
             int result;
             if(card == 1)
                 result = (total <= 10) ? 11 : 1; 
-            else if(card >10)
+            else if(card > 10)
                 result = 10;
             else
                 result = card;
@@ -47,23 +47,23 @@ class Game
         for(int i =0 ; i<2 ; i++){
             int card1 = rand.Next(1,14);
             cardCounts[card1-1]--;
-            pTotal = (card1==1) ? 11 : card1;
+            pTotal = (card1==1) ? 11 : hitHandler(0,card1);
             int card2 = rand.Next(1,14);
 
             pTotal += hitHandler(pTotal,card2);
             cardCounts[card2-1]--;
-            playerCards = cardNamer(card1)+" "+cardNamer(card2);
+            playerCards = cardNamer(card1)+cardNamer(card2);
         }
     // Set dealer cards
         for(int i =0 ; i<2 ; i++){
             int card1 = rand.Next(1,14);
             cardCounts[card1-1]--;
-            dTotal = (card1==1) ? 11 : card1;
+            dTotal = (card1==1) ? 11 : hitHandler(0,card1);
             int card2 = rand.Next(1,14);
             dTotal += hitHandler(dTotal,card2);
             cardCounts[card2-1]--;
             topCard = cardNamer(card1);
-            dealerCards = cardNamer(card1)+" "+cardNamer(card2);
+            dealerCards = cardNamer(card1)+cardNamer(card2);
         }
         Console.WriteLine("Here are your cards "+ playerCards);
         Console.WriteLine("You have {0}",pTotal.ToString());
@@ -86,7 +86,7 @@ class Game
             cardCounts[card-1]--;
             playerCards += cardNamer(card);
             pTotal+= hitHandler(pTotal,card); 
-            Console.WriteLine("You have {0} '\t' {1} Total ",playerCards,pTotal.ToString());
+            Console.WriteLine("You have {0} \t {1} Total ",playerCards,pTotal.ToString());
             if(pTotal > 21)
                 break;
             Console.WriteLine("Hit or Stay?");
@@ -107,7 +107,7 @@ class Game
 
     //dealers turn 
     //dealer hits until they reach 17 or higher
-            Console.WriteLine("Dealer has {0} '\t' {1} Total ",dealerCards,dTotal.ToString());
+            Console.WriteLine("Dealer has {0} \t {1} Total ",dealerCards,dTotal.ToString());
             
             while(dTotal <= 17 && pTotal>dTotal){
                 int card = rand.Next(1,14);
@@ -116,7 +116,7 @@ class Game
                 cardCounts[card-1]--;
                 dealerCards += cardNamer(card);
                 dTotal+= hitHandler(dTotal,card);
-                Console.WriteLine("Dealer has {0} '\t' {1} Total ",dealerCards,dTotal.ToString()); 
+                Console.WriteLine("Dealer has {0} \t {1} Total ",dealerCards,dTotal.ToString()); 
             }
 
 
