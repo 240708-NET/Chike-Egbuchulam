@@ -85,9 +85,24 @@ static void Main(string[] args){
         Console.Write("Hit or Stay?");
         playerChoice = Console.ReadLine().ToLower();
     }while(pTotal <21 && playerChoice != "stay");
+//dealers turn 
+
+    Console.Write("Dealer has {0} {1} Total ",dealerCards,dTotal.ToString());
+    
+    do{
+        int card = rand.Next(14);
+        while(cardCounts[card]==0)
+            card = rand.Next(14);
+        cardCounts[card]--;
+        dealerCards += cardNamer(card);
+        dTotal+= hitHandler(dTotal,card);
+
+    }while(dTotal < 17);
+    
 
     if(pTotal == 21)
     {
+        if(dTotal != 21)
         Console.Write("Blackjack! You Win!");
     }
     else
