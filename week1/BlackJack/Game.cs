@@ -10,6 +10,9 @@ class Game
     string playerCards = "";
     int pTotal=0;
 
+    bool playerHasAce = false;
+    bool dealerHasAce = false;
+
     public Game(){}
     public void start(){
     for(int i = 0 ; i< cardCounts.Length; i++)
@@ -27,14 +30,22 @@ class Game
             }
             return " " + card.ToString();
         }
-        int hitHandler(int total, int card){
+        int hitHandler(int total, int card, char player){
             int result;
-            if(card == 1)
-                result = (total <= 10) ? 11 : 1; 
+            if(card == 1){
+                result = (total <= 10) ? 11 : 1;
+                if(player == 'p')
+                    playerHasAce = true;
+                else
+                    dealerHasAce = true;
+            }
             else if(card > 10)
                 result = 10;
             else
                 result = card;
+            // in the cases where you have a soft high number ex. soft 15 or soft 16
+            if(total + result >21 &&  player =='p' && playerHasAce || total + result >21 && player == 'd' && dealerHasAce)
+                result -= 10;
             return result;
         }
 
@@ -47,10 +58,10 @@ class Game
         for(int i =0 ; i<2 ; i++){
             int card1 = rand.Next(1,14);
             cardCounts[card1-1]--;
-            pTotal = (card1==1) ? 11 : hitHandler(0,card1);
+            pTotal = (card1==1) ? 11 : hitHandler(0,card1,'p');
             int card2 = rand.Next(1,14);
 
-            pTotal += hitHandler(pTotal,card2);
+            pTotal += hitHandler(pTotal,card2,'p');
             cardCounts[card2-1]--;
             playerCards = cardNamer(card1)+cardNamer(card2);
         }
@@ -58,9 +69,9 @@ class Game
         for(int i =0 ; i<2 ; i++){
             int card1 = rand.Next(1,14);
             cardCounts[card1-1]--;
-            dTotal = (card1==1) ? 11 : hitHandler(0,card1);
+            dTotal = (card1==1) ? 11 : hitHandler(0,card1,'d');
             int card2 = rand.Next(1,14);
-            dTotal += hitHandler(dTotal,card2);
+            dTotal += hitHandler(dTotal,card2,'d');
             cardCounts[card2-1]--;
             topCard = cardNamer(card1);
             dealerCards = cardNamer(card1)+cardNamer(card2);
@@ -85,7 +96,7 @@ class Game
                 card = rand.Next(1,14);
             cardCounts[card-1]--;
             playerCards += cardNamer(card);
-            pTotal+= hitHandler(pTotal,card); 
+            pTotal+= hitHandler(pTotal,card,'p'); 
             Console.WriteLine("You have {0} \t {1} Total ",playerCards,pTotal.ToString());
             if(pTotal > 21)
                 break;
@@ -115,7 +126,7 @@ class Game
                     card = rand.Next(1,14);
                 cardCounts[card-1]--;
                 dealerCards += cardNamer(card);
-                dTotal+= hitHandler(dTotal,card);
+                dTotal+= hitHandler(dTotal,card,'d');
                 Console.WriteLine("Dealer has {0} \t {1} Total ",dealerCards,dTotal.ToString()); 
             }
 
