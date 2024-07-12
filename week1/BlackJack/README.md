@@ -7,7 +7,7 @@ The Program starts by first asking if you want to play and executes by dealing y
 The player is then asked if he wished to **Hit** and receive an additional card or **Stay** to remain at their current total.
 The player is allowed to hit until their cumulative card total reaches *21* or untill it surpassed *21* in which the player "Busts" and loses. 
 
-Once the player chooses to stay, play transitions to the dealer in which they reveal their second card and draw cards until they surpasss the player total or reach *17* in which they are required to stand and the player wins.
+Once the player chooses to stay, play transitions to the dealer in which they reveal their second card and draw cards until they surpasss the player total or reach or pass *17* in which the dealer wins if they beat the player's score without going over *21*, "busts" and loses if the dealer goes over *21* , or "Pushes" if the dealer's score equals the player's score. 
 
 ## Funcitionality
 *  The computer is designed to is designed to simulate a casino dealer drawing cards from a standard 52 card deck. Hence no card value may show up more than four times.
