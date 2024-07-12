@@ -44,8 +44,14 @@ class Game
             else
                 result = card;
             // in the cases where you have a soft high number ex. soft 15 or soft 16
-            if(total + result >21 &&  player =='p' && playerHasAce || total + result >21 && player == 'd' && dealerHasAce)
+            if(total + result >21 &&  player =='p' && playerHasAce == true || total + result >21 && player == 'd' && dealerHasAce == true){
                 result -= 10;
+                if(player == 'p')
+                    playerHasAce = false;
+                else
+                    dealerHasAce = false;
+            }
+
             return result;
         }
 
@@ -130,11 +136,12 @@ class Game
                 Console.WriteLine("Dealer has {0} \t {1} Total ",dealerCards,dTotal.ToString()); 
             }
 
-
+            if(dTotal >21)
+                Console.WriteLine("Dealer Busts!");
             if(pTotal==dTotal){
                 Console.WriteLine("PUSH");
             }
-            else if(pTotal>dTotal && pTotal <= 21){
+            else if(pTotal>dTotal && pTotal <= 21 || dTotal >21){
                 Console.WriteLine("Winner! Nice job");
             }
             else{
