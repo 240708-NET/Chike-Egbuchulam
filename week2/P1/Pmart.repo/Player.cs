@@ -1,5 +1,7 @@
+using Pmart.Repo;
+
 namespace Pmart.Models{
-public class Player{
+public class Player: IPlayer{
     public int Id{get;set;}
     public string PlayerName{get; set;}
     public int WalletBalance {get;set;}
@@ -24,7 +26,9 @@ public Player(string name , int balance , int BagCapacity){
 
 }
 
-
+public void Buy(Mart m ,Product p){}
+public void Sell(Product p){}
+public string OpenBag(){return "";}
 public string ToString(){
     string result = "" ;
     result = this.PlayerName + " " + "( "+this.Id+")"+ "has a current wallet balance of $ "+this.WalletBalance +

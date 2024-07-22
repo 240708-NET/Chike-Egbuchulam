@@ -1,11 +1,13 @@
 using Pmart.Models;
 namespace Pmart.Repo{
 public class Mart:IMart{
-    string Name {get; set;}
+    public string StoreName {get;set;}
     string Address{get;set;}
-    List<Product> stock {get;set;}
+        public Dictionary<Product,int> Stock{get;set;}
 
-
+        public void Sell(Product p){}
+        public void Buy(Product p){}
+        public List<Product> ListStock(){return null;}
 
     public Mart(){}
     

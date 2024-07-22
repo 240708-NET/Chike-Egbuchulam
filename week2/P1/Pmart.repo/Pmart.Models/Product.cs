@@ -2,7 +2,8 @@ using System.Xml.XPath;
 
 public class Product{
     int Id {get;set;}
-    int Price {get;set;}
+    int BuyPrice {get;set;}
+    int SellPrice {get;set;}
     string ProductName {get; set;}
     string Description{get; set;}
 
