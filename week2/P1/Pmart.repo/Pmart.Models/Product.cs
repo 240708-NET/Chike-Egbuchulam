@@ -1,13 +1,14 @@
 using System.Xml.XPath;
 
-class Product{
+public class Product{
     int Id {get;set;}
+    int Price {get;set;}
     string ProductName {get; set;}
     string Description{get; set;}
 
 public string  ToString(){
     string result = "";
-    result = this.ProductName +": \t " + this.Description;
+    result = this.ProductName +": " + this.Description;
     return result;
 }
 }
