@@ -25,6 +25,10 @@ public Player(string name , int balance , int BagCapacity){
     this.Bag = new Dictionary<Product, int>();
 
 }
+public Player(){
+    this.Bag = new Dictionary<Product, int>();
+    this.BagCapacity = 20;
+}
 
 public void Buy(Product p){}
 public void Sell(Product p){}
