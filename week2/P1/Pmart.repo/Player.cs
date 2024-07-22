@@ -26,7 +26,7 @@ public Player(string name , int balance , int BagCapacity){
 
 }
 
-public void Buy(Mart m ,Product p){}
+public void Buy(Product p){}
 public void Sell(Product p){}
 public string OpenBag(){return "";}
 public string ToString(){

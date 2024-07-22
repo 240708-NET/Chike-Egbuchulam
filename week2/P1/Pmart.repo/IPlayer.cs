@@ -10,7 +10,7 @@ public int Id{get;set;}
     public Dictionary<Product,int> Bag{get;set;}
 
     public void Sell(Product p);
-    public void Buy(Mart m , Product p);
+    public void Buy( Product p);
     public string OpenBag();
 
 
