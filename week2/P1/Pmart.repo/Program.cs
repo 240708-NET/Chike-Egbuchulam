@@ -2,6 +2,21 @@
 using Pmart.Models;
 using Pmart.Repo;
 
+
+/*
+    TASKS:
+        - Read in values form csv file, and put them in a list
+        - Make a random set of items for each store, add them to the bag dictionary (Consider changing dictionary to Porduct, List<int>)
+        - Implement Buy and sell methods for both Mart and Player
+    
+
+
+
+
+
+*/
+
+
 static void Main(string[] args){
     Mart [] locations = new Mart[10];
     Mart storeSelection ;
@@ -9,6 +24,8 @@ static void Main(string[] args){
     Player currentPlayer = new Player();
     Console.WriteLine("Please Enter your name:");
     currentPlayer.PlayerName = Console.ReadLine();
+
+
 
     Console.WriteLine("Welcome {0}, to wonderful world of Pokemon!",currentPlayer.PlayerName);
     Console.WriteLine("Where would you like to go?");
@@ -32,7 +49,7 @@ static void Main(string[] args){
      //buying logic
     if(storeDecision == "buy"){
         if(currentPlayer.WalletBalance>0){
-            
+            Console.WriteLine("Sure, what what would you like to buy?");
         }
         else
         {

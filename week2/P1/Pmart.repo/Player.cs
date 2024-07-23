@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using Pmart.Repo;
 
 namespace Pmart.Models{
@@ -28,6 +29,7 @@ public Player(string name , int balance , int BagCapacity){
 public Player(){
     this.Bag = new Dictionary<Product, int>();
     this.BagCapacity = 20;
+    this.WalletBalance = RandomNumberGenerator.GetInt32(10000,100000);
 }
 
 public void Buy(Product p){}
