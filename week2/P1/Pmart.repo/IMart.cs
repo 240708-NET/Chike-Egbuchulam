@@ -8,10 +8,12 @@ namespace Pmart.Repo
         public string StoreName {get;set;}
         public string Description {get;set;}
 
-        public Dictionary<Product,int> Stock{get;set;}
+        public Dictionary<string,int> Inventory{get;set;}
+        public HashSet<Product> Stock{get;set;}
+
         void Sell(Product p);
         void Buy(Product p);
-        List<Product> ListStock();
+        String ListStock();
 
 
     }
