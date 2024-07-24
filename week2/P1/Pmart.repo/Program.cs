@@ -65,10 +65,6 @@ static void Main(string[] args){
 
     }
     itemReader.Close();
-
-
-
-
 //=======================================================================SETUP========================================================================
     Mart [] locations = new Mart[10];
     Mart storeSelection ;

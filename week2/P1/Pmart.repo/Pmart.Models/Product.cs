@@ -2,11 +2,11 @@ using System.ComponentModel;
 using System.Xml.XPath;
 
 public class Product{
-    int Id {get;set;}
-    int BuyPrice {get;set;}
-    int SellPrice {get;set;}
-    string ProductName {get; set;}
-    string Description{get; set;}
+    public int Id {get;set;}
+    public int BuyPrice {get;set;}
+    public int SellPrice {get;set;}
+    public string ProductName {get; set;}
+    public string Description{get; set;}
 
     public Product(){
     }

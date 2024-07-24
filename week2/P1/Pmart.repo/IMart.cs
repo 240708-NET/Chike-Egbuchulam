@@ -10,6 +10,7 @@ namespace Pmart.Repo
 
         public Dictionary<string,int> Inventory{get;set;}
         public HashSet<Product> Stock{get;set;}
+        public Product GetItemById(int id);
 
         void Sell(Product p);
         void Buy(Product p);
