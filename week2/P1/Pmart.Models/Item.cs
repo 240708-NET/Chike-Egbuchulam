@@ -1,24 +1,26 @@
 using System.ComponentModel;
 using System.Xml.XPath;
 
-public class Product{
+public class Item{
     public int Id {get;set;}
     public int BuyPrice {get;set;}
     public int SellPrice {get;set;}
-    public string ProductName {get; set;}
+    public string ItemName {get; set;}
     public string Description{get; set;}
+    public Owner CurrentOwner {get;set;}
+    // public Object owner{get;set}
 
-    public Product(){
+    public Item(){
     }
-    public Product(string ProductName,int BuyPrice,int SellPrice,string Description){
-        this.ProductName = ProductName;
+    public Item(string ItemName,int BuyPrice,int SellPrice,string Description){
+        this.ItemName = ItemName;
         this.BuyPrice = BuyPrice;
         this.SellPrice = SellPrice;
         this.Description = Description;
       
     }
-       public Product(int Id,string ProductName,int BuyPrice,int SellPrice,string Description){
-        this.ProductName = ProductName;
+       public Item(int Id,string ItemName,int BuyPrice,int SellPrice,string Description){
+        this.ItemName = ItemName;
         this.BuyPrice = BuyPrice;
         this.SellPrice = SellPrice;
         this.Description = Description;
@@ -29,7 +31,7 @@ public class Product{
 
 public string  ToString(){
     string result = "";
-    result = this.ProductName +": " + this.Description;
+    result = this.ItemName +'\t' + this.Description;
     return result;
 }
 }
