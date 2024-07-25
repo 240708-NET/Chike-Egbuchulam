@@ -1,9 +1,11 @@
+
 namespace P1.Repo{
         public interface IRepo{
-        void SaveItem(Item myDuck);
+        void SaveItem(Item myItem);
         void SaveAllItems(List<Item> prodList);
-        List<Item> LoadAllDucks ();
-        Item GetDuckById ( int id );
-        void DeletePById ( int id );
+        List<Item> LoadAllItems ();
+        Item GetItemById ( int id );
+        void DeleteItemById ( int id );
+
         }
 }

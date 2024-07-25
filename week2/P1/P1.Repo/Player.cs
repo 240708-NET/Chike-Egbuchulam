@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using P1.Models;
 
 namespace P1.Repo{
 public class Player: Owner{

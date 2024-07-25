@@ -1,6 +1,6 @@
 
 
-
+namespace P1.Models{
  public interface Owner
     {
         public string Name {get;set;}
@@ -11,4 +11,4 @@
 
 
 
-    }
+    }}

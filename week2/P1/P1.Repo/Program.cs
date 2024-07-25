@@ -22,26 +22,29 @@ static void Main(string[] args){
 
     
 // =====================================================================SETUP=================================================================
-    // string mPath = "~/Pmart.Data/Locations.csv";
+    string mPath = "~/Pmart.Data/Locations.csv";
     string iPath = "./Pmart.Data/Items.csv";
-    // List<Mart> marts = new List<Mart>();
+    List<Mart> marts = new List<Mart>();
     List<Item> items = new List<Item>();
     string [] line;
-    // StreamReader martReader = new StreamReader( mPath ); 
+    StreamReader martReader = new StreamReader( mPath ); 
     string text = "";
-    // while( (text = martReader.ReadLine()) != null )
-    // {
-    //     line = text.Split(";",2);
-    //     Mart m = new Mart(line[0],line[1]);
-    //     marts.Add(m);
+    string connectionstring = "";
+    IRepo repo = new EFmain(connectionstring);
 
-    // }
-    // martReader.Close();
+    while( (text = martReader.ReadLine()) != null )
+    {
+        line = text.Split(";",2);
+        Mart m = new Mart(line[0],line[1]);
+        marts.Add(m);
+
+    }
+    martReader.Close();
 
     StreamReader itemReader = new StreamReader( iPath ); 
      text = "";
     Random rnd = new Random();  
-    // int martIdx;
+    int martIdx;
     int pId = 0;  
     while( (text = itemReader.ReadLine()) != null )
     {
@@ -49,23 +52,25 @@ static void Main(string[] args){
         line = text.Split(";",4);
         for(int i = 0; i < 30; i++)
         {
-            // martIdx=rnd.Next(marts.Count);
-            // Mart m = marts[martIdx];
+            martIdx=rnd.Next(marts.Count);
+            Mart m = marts[martIdx];
             Item p = new Item(
                             pId,
                             line[0],            //name
                             int.Parse(line[1]), //buy price
                             int.Parse(line[2]), // sell price
                             line[3]);           //description
-            // m.Stock.Add(p);
-            // m.Inventory.Add(line[0], m.Inventory[line[0]]+1 );
+            p.CurrentOwner=m;
+            items.Add(p);
+            m.Stock.Add(p);
+            m.Inventory.Add(line[0], m.Inventory[line[0]]+1 );
             pId++;
         }
 
     }
     itemReader.Close();
+    repo.SaveAllItems(items);
 //=======================================================================SETUP========================================================================
-    Mart [] locations = new Mart[10];
     Mart storeSelection = new Mart("Rustboro City" , "The city probing the integration of nature and science.");
     string storeDecision= "";
     Player currentPlayer = new Player();
@@ -73,8 +78,8 @@ static void Main(string[] args){
     currentPlayer.Name = Console.ReadLine();
     Console.WriteLine("Welcome {0}, to wonderful world of Pokemon!",currentPlayer.Name);
     Console.WriteLine("Where would you like to go?");
-    for(int i=0; i<locations.Length;i++){
-        Console.WriteLine("{0}. {1}",i+1,locations[i].Name);
+    for(int i=0; i<marts.Count;i++){
+        Console.WriteLine("{0}. {1}",i+1,marts[i].Name);
     }
     Console.WriteLine("Welcome to the {0} Pokemart : {1} ",storeSelection.Name,storeSelection.Description);
     Console.WriteLine("Would you like to Buy or Sell? ");

@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Xml.XPath;
-
+using P1.Models;
 public class Item{
     public int Id {get;set;}
     public int BuyPrice {get;set;}

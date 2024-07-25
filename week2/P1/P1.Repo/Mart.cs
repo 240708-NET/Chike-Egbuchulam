@@ -1,3 +1,5 @@
+
+using P1.Models;
 namespace P1.Repo{
 public class Mart:Owner{
     public string Name {get;set;}
