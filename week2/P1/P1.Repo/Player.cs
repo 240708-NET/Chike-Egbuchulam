@@ -31,7 +31,7 @@ public Player(string name , int balance , int BagCapacity){
 public Player(){
     this.Bag = new HashSet<Item>();
     this.BagCapacity = 20;
-    this.WalletBalance = RandomNumberGenerator.GetInt32(10000,100000);
+    this.WalletBalance = RandomNumberGenerator.GetInt32(5000,10000);
 }
 
 
@@ -62,8 +62,6 @@ public void Sell(Item p){
      this.Bag.Remove(p);
      this.Inventory[p.ItemName]-=1;
      this.WalletBalance+=p.SellPrice;
-
-
 }
 public string OpenBag()
 {

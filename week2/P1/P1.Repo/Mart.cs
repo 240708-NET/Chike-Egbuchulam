@@ -51,6 +51,7 @@ public class Mart:Owner{
         this.Inventory[p.ItemName]-=1;
     }
     public void Buy(Item p){
+        p.CurrentOwner=this;
         this.Stock.Add(p);
         this.Inventory[p.ItemName]+=1;
     }

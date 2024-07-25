@@ -6,16 +6,16 @@ namespace P1.Repo
 {
     public class EFmain :IRepo
     {
-        static readonly string connectionstring = "";
         static ItemContext context;
 
         public EFmain( string SC )
         {
-            DbContextOptions<ItemContext> options;
-            options = new DbContextOptionsBuilder<ItemContext>()
-                .UseSqlServer(connectionstring)
-                .Options;
-            context = new ItemContext(options);
+            // DbContextOptions<ItemContext> options;
+            // options = new DbContextOptionsBuilder<ItemContext>()
+            //     .UseSqlServer(SC)
+            //     .Options;
+            // context = new ItemContext(options);
+            context = new ItemContext();
         }
         public void SaveItem(Item myItem)
         {
