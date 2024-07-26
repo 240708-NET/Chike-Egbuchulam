@@ -1,5 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using P1.Models;
 namespace P1.Repo
 {
