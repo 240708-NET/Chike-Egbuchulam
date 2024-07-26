@@ -1,0 +1,5 @@
+Oldale Town;"Where things start off scarce."
+Rustboro City;"The city probing the integration of nature and science."
+Slateport City;"The port where people and Pokémon cross paths with nature."
+Mauville City;"The bright and shiny city of fun!"
+Verdanturf Town;"The windswept highlands with the sweet fragrance of grass.

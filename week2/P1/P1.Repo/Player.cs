@@ -4,8 +4,7 @@ using P1.Models;
 
 namespace P1.Repo{
 public class Player: Owner{
-    public int Id{get;set;}
-    public string Name{get; set;}
+
     public int WalletBalance {get;set;}
     public int BagCapacity{get;set;}
     public HashSet<Item> Bag{get;set;}
@@ -51,7 +50,10 @@ public void Buy(Item p){
     if(this.Bag.Count < this.BagCapacity)
     {
      this.Bag.Add(p);
-     this.Inventory[p.ItemName]+=1;
+     if(this.Inventory.ContainsKey(p.ItemName))
+        this.Inventory[p.ItemName]+=1;
+    else{
+        this.Inventory.Add(p.ItemName, 1 );}
      this.WalletBalance-=p.BuyPrice;
     }
     else{

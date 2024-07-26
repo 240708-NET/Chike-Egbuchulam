@@ -2,13 +2,13 @@
 using P1.Models;
 namespace P1.Repo{
 public class Mart:Owner{
-    public string Name {get;set;}
     public string Description {get;set;}
     public Dictionary<string,int> Inventory{get;set;}
     public HashSet <Item> Stock{get;set;}
 
 
     public Mart(){
+        this.Name= "Default";
         this.Inventory = new Dictionary<string, int>();
         this.Stock = new HashSet<Item>();
     }
@@ -45,6 +45,17 @@ public class Mart:Owner{
         return item;
     }
 
+    public int GetItemIdByName(string name){
+        Item item = null;
+        foreach(Item p in Stock){
+            if (p.ItemName == name){
+                item = p;
+                break;
+            }
+        }
+        return item.Id;
+    }
+
 
     public void Sell(Item p){
         this.Stock.Remove(p);
@@ -53,7 +64,10 @@ public class Mart:Owner{
     public void Buy(Item p){
         p.CurrentOwner=this;
         this.Stock.Add(p);
+        if(this.Inventory.ContainsKey(p.ItemName))
         this.Inventory[p.ItemName]+=1;
+    else{
+        this.Inventory.Add(p.ItemName, 1 );}
     }
     public string  ListStock()
     {

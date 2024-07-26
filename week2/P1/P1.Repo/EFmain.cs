@@ -32,6 +32,23 @@ namespace P1.Repo
             context.SaveChanges();
         }
 
+        public void SaveAllOwners(List<Owner> ownerList)
+        {
+             foreach (Owner i in ownerList)
+            {
+                context.Owners.Add(i);
+            }
+            context.SaveChanges();
+        }
+
+        public void SaveOwner(Owner Owner)
+        {
+            context.Owners.Add(Owner);
+            context.SaveChanges();
+        }
+
+        
+
          public List<Item> LoadAllItems()
         {
             return context.Items.ToList();

@@ -12,12 +12,12 @@ public class Item{
 
     public Item(){
     }
-    public Item(string ItemName,int BuyPrice,int SellPrice,string Description){
+    public Item(string ItemName,int BuyPrice,int SellPrice,string Description, Owner o){
         this.ItemName = ItemName;
         this.BuyPrice = BuyPrice;
         this.SellPrice = SellPrice;
         this.Description = Description;
-      
+        this.CurrentOwner = o;
     }
        public Item(int Id,string ItemName,int BuyPrice,int SellPrice,string Description){
         this.ItemName = ItemName;
@@ -27,6 +27,8 @@ public class Item{
         this.Id = Id;
         
     }
+
+    
 
 
 public string  ToString(){
