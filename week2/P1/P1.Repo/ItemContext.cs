@@ -1,6 +1,7 @@
+// See https://aka.ms/new-console-template for more information
+
 using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using P1.Models;
 
 namespace P1.Repo
@@ -15,6 +16,4 @@ namespace P1.Repo
             optionsBuilder.UseSqlServer(ConnectionString);
         }
     }
-
-
 }

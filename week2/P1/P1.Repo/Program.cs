@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using P1.Repo;
+using P1;
 
 
 /*
@@ -18,9 +19,6 @@ using P1.Repo;
 
 
 static void Main(string[] args){
-
-
-    
 // =====================================================================SETUP=================================================================
     string mPath = @".\Pmart.Data\Locations.csv";
     string iPath = @".\Pmart.Data\Items.csv";
